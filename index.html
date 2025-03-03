@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Εκπαίδευση Χρόνου Οθόνης</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="page1" class="container">
+        <div class="inner-cont3">
+        <h1>Κατανόηση Χρόνου Έκθεσης σε Οθόνη</h1>
+        <p class="cont">Ο χρόνος έκθεσης σε oθόνη αναφέρεται στη διάρκεια που περνάει κάποιος μπροστά από μια ψηφιακή συσκευή, όπως το κινητό, ο υπολογιστής, η τηλεόραση ή το tablet.   
+        </p>
+        <p class="cont">Στη σύγχρονη εποχή, η τεχνολογία αποτελεί αναπόσπαστο κομμάτι της καθημερινότητάς μας, τόσο για εργασία και εκπαίδευση όσο και για ψυχαγωγία.
+        </p>
+        <p class="cont">Ο χρόνος που περνάμε στις οθόνες επηρεάζει την υγεία, τη συγκέντρωση και την ευεξία μας. Είναι σημαντικό να υπάρχει ισορροπία με τη φυσική δραστηριότητα.
+        </p>
+        <button onclick="goToPage2()">Επόμενο</button>
+        </div>
+    </div>
+
+    <div id="page2" class="container hidden">
+        <h2>Ρύθμιση Χρόνου Οθόνης & Δραστηριότητας</h2>
+
+        <div class="cont2">
+        <label for="screenSlider">Χρόνος Έκθεσης σε Οθόνη (ώρες): <span id="screenHours">0</span></label>
+        <br>
+        <input type="range" min="0" max="10" value="0" id="screenSlider" oninput="updateScreenTime(this.value)">
+        <div class="bar-container">
+            <div class="bar">
+                <div id="screenTimeBar" class="fill"></div>
+            </div>
+        </div>
+        <p class="message" id="screenMessage"></p>
+        </div>
+
+        <div class="cont2">
+        <label for="activitySlider">Χρόνος Δραστηριότητας (ώρες): <span id="activityHours">0</span></label>
+        <br>
+        <input type="range" min="0" max="10" value="0" id="activitySlider" oninput="updateActivityTime(this.value)">
+        <div class="bar-container">
+            <div class="bar">
+                <div id="activityTimeBar" class="fill"></div>
+            </div>
+        </div>
+        <p class="message" id="activityMessage"></p>
+        </div>
+        
+        <button onclick="goToPage3()">Επόμενο</button>
+        <button onclick="goToPage1()">Πίσω</button>
+        </div>
+
+    <div id="page3" class="container2 hidden"> 
+        <div class="inner-cont1">
+        <h2><i class="fa-solid fa-square-plus" style="color: #00ff2a;"></i>Θετικές Πλευρές Έκθεσης σε Οθόνη<i class="fa-solid fa-square-plus" style="color: #00ff2a;"></i></h2>
+
+        <p class="cont"><i class="fa-solid fa-square-check"></i> Μάθηση & Εκπαίδευση – Πρόσβαση σε πληροφορίες, διαδικτυακά μαθήματα, ψηφιακές εγκυκλοπαίδειες και εκπαιδευτικές πλατφόρμες.</p>
+        <p class="cont"><i class="fa-solid fa-square-check"></i> Επικοινωνία & Κοινωνική Δικτύωση – Δυνατότητα επικοινωνίας με φίλους, οικογένεια και επαγγελματικές επαφές μέσω κοινωνικών δικτύων και μηνυμάτων.
+        </p>
+        <p class="cont"><i class="fa-solid fa-square-check"></i> Ψυχαγωγία – Βίντεο, ταινίες, μουσική, παιχνίδια και άλλες μορφές ψηφιακής διασκέδασης.</p>
+        <p class="cont"><i class="fa-solid fa-square-check"></i> Ανάπτυξη Δεξιοτήτων – Ο χρόνος έκθεσης σε oθόνη μπορεί να χρησιμοποιηθεί δημιουργικά, όπως στον προγραμματισμό, στη γραφιστική ή στη μουσική παραγωγή.</p>
+        </div>
+        
+        <div class="inner-cont2">
+        <h2><i class="fa-solid fa-square-minus" style="color: #ff1605;"></i>Αρνητικές Πλευρές Έκθεσης σε Οθόνη<i class="fa-solid fa-square-minus" style="color: #ff1605;"></i></h2>
+
+        <p class="cont"><i class="fa-solid fa-triangle-exclamation"></i> Επιπτώσεις στην Υγεία – Υπερβολικός χρόνος έκθεσης σε oθόνη μπορεί να προκαλέσει κόπωση ματιών, πονοκεφάλους, διαταραχές ύπνου και καθιστική ζωή.</p>
+        <p class="cont"><i class="fa-solid fa-triangle-exclamation"></i> Μείωση Προσωπικών Σχέσεων – Η συνεχής χρήση ψηφιακών συσκευών μπορεί να περιορίσει την πραγματική επικοινωνία και τις κοινωνικές αλληλεπιδράσεις.</p>
+        <p class="cont"><i class="fa-solid fa-triangle-exclamation"></i> Αποδιοργάνωση & Μείωση Παραγωγικότητας – Η πολύωρη χρήση των συσκευών για ψυχαγωγία μπορεί να μειώσει την ικανότητα συγκέντρωσης και να οδηγήσει σε αναβλητικότητα.</p>
+        <p class="cont"><i class="fa-solid fa-triangle-exclamation"></i> Εθισμός & Ψυχολογικές Επιπτώσεις – Τα κοινωνικά δίκτυα και τα ψηφιακά παιχνίδια μπορεί να προκαλέσουν εξάρτηση, αυξημένο άγχος και χαμηλή αυτοεκτίμηση.</p>
+        </div>
+        
+        <button onclick="goToPage2()">Πίσω</button>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
