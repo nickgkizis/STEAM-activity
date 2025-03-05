@@ -1,166 +1,241 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Εκπαίδευση Χρόνου Οθόνης</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Εκπαίδευση Χρόνου Οθόνης</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Added Chart.js library for the line graph -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div id="page1" class="container">
-        <div class="inner-cont3">
-        <h1>Κατανόηση Χρόνου Έκθεσης σε Οθόνη</h1>
-        <p class="cont">Ο χρόνος έκθεσης σε oθόνη αναφέρεται στη διάρκεια που περνάει κάποιος μπροστά από μια ψηφιακή συσκευή, όπως το κινητό, ο υπολογιστής, η τηλεόραση ή το tablet.   
-        </p>
-        <p class="cont">Στη σύγχρονη εποχή, η τεχνολογία αποτελεί αναπόσπαστο κομμάτι της καθημερινότητάς μας, τόσο για εργασία και εκπαίδευση όσο και για ψυχαγωγία.
-        </p>
-        <p class="cont">Ο χρόνος που περνάμε στις οθόνες επηρεάζει την υγεία, τη συγκέντρωση και την ευεξία μας. Είναι σημαντικό να υπάρχει ισορροπία με τη φυσική δραστηριότητα.
-        </p>
-        </div>
+  <!-- Page 1: Κατανόηση Χρόνου Έκθεσης σε Οθόνη -->
+  <div id="page1" class="container">
+    <div class="inner-cont3">
+      <h1>Κατανόηση Χρόνου Έκθεσης σε Οθόνη <br> <br><i class="fa-solid fa-circle-info"></i> Εισαγωγή</i></h1>
+      <p class="cont">Ο χρόνος έκθεσης σε οθόνη αναφέρεται στη διάρκεια που περνάει κάποιος μπροστά από μια ψηφιακή συσκευή, όπως το κινητό, ο υπολογιστής, η τηλεόραση ή το tablet.</p>
+        <p class="cont">Στη σύγχρονη εποχή, η τεχνολογία αποτελεί αναπόσπαστο κομμάτι της καθημερινότητάς μας, τόσο για εργασία και εκπαίδευση όσο και για ψυχαγωγία.</p>
+        <p class="cont">Ο χρόνος που περνάμε στις οθόνες επηρεάζει την υγεία, τη συγκέντρωση και την ευεξία μας. Είναι σημαντικό να υπάρχει ισορροπία με τη φυσική δραστηριότητα.</p>
 
-        <button onclick="goToPage2()">Επόμενο <i class="fa-solid fa-forward" style="color: #ffffff;"></i></button>
-    </div>
-
-    <div id="page2" class="container hidden">
-        <h2>Ρύθμιση Χρόνου Οθόνης & Δραστηριότητας</h2>
-
-        <div class="cont2">
-        <label for="screenSlider">Χρόνος Έκθεσης σε Οθόνη (ώρες): <span id="screenHours">0</span></label>
-        <br>
-        <input type="range" min="0" max="10" value="0" id="screenSlider" oninput="updateScreenTime(this.value)">
-        <div class="bar-container">
-            <div class="bar">
-                <div id="screenTimeBar" class="fill"></div>
-            </div>
-        </div>
-        <p class="message" id="screenMessage"></p>
-        </div>
-
-        <div class="cont2">
-        <label for="activitySlider">Χρόνος Δραστηριότητας (ώρες): <span id="activityHours">0</span></label>
-        <br>
-        <input type="range" min="0" max="10" value="0" id="activitySlider" oninput="updateActivityTime(this.value)">
-        <div class="bar-container">
-            <div class="bar">
-                <div id="activityTimeBar" class="fill"></div>
-            </div>
-        </div>
-        <p class="message" id="activityMessage"></p>
-        </div>
-        
-        <button onclick="goToPage1()">Πίσω <i class="fa-solid fa-backward" style="color: #ffffff;"></i></button>
-        <button onclick="goToPage3()">Επόμενο <i class="fa-solid fa-forward" style="color: #ffffff;"></i></button>
-        
-        </div>
-
-    <div id="page3" class="container hidden"> 
-        <div class="inner-cont1">
-        <h2><i class="fa-solid fa-square-plus" style="color: #00ff2a;"></i>Θετικές Πλευρές Έκθεσης σε Οθόνη<i class="fa-solid fa-square-plus" style="color: #00ff2a;"></i></h2>
-
-        <p class="cont"><i class="fa-solid fa-square-check"></i> Μάθηση & Εκπαίδευση – Πρόσβαση σε πληροφορίες, διαδικτυακά μαθήματα, ψηφιακές εγκυκλοπαίδειες και εκπαιδευτικές πλατφόρμες.</p>
-        <p class="cont"><i class="fa-solid fa-square-check"></i> Επικοινωνία & Κοινωνική Δικτύωση – Δυνατότητα επικοινωνίας με φίλους, οικογένεια και επαγγελματικές επαφές μέσω κοινωνικών δικτύων και μηνυμάτων.
-        </p>
-        <p class="cont"><i class="fa-solid fa-square-check"></i> Ψυχαγωγία – Βίντεο, ταινίες, μουσική, παιχνίδια και άλλες μορφές ψηφιακής διασκέδασης.</p>
-        <p class="cont"><i class="fa-solid fa-square-check"></i> Ανάπτυξη Δεξιοτήτων – Ο χρόνος έκθεσης σε oθόνη μπορεί να χρησιμοποιηθεί δημιουργικά, όπως στον προγραμματισμό, στη γραφιστική ή στη μουσική παραγωγή.</p>
-        </div>
-        
-        <button onclick="goToPage2()">Πίσω <i class="fa-solid fa-backward" style="color: #ffffff;"></i></button>
-        <button onclick="goToPage4()">Επόμενο <i class="fa-solid fa-forward" style="color: #ffffff;"></i></button>
-        
+        <p class="cont">Επιπλέον, η χρήση των ψηφιακών συσκευών συμβάλλει στην ανάπτυξη νέων δεξιοτήτων και στην πρόσβαση σε πληροφορίες σε παγκόσμια κλίμακα, προσφέροντας εκπαιδευτικές και επαγγελματικές ευκαιρίες που δεν υπήρχαν στο παρελθόν.</p>
+        <p class="cont">Ωστόσο, η υπερβολική χρήση μπορεί να οδηγήσει σε προβλήματα όπως η εξάρτηση από τις οθόνες, η μείωση της κοινωνικής επαφής και η διαταραχή του ύπνου, επηρεάζοντας αρνητικά τόσο την ψυχική όσο και τη σωματική υγεία.</p>
 
     </div>
+    <button onclick="goToPage2()">Επόμενο <i class="fa-solid fa-forward" style="color: #ffffff;"></i></button>
+  </div>
 
-    <div id="page4" class="container hidden">
-        <div class="inner-cont2">
-            <h2><i class="fa-solid fa-square-minus" style="color: #ff1605;"></i>Αρνητικές Πλευρές Έκθεσης σε Οθόνη<i class="fa-solid fa-square-minus" style="color: #ff1605;"></i></h2>
+  <!-- Page 2: Ρύθμιση Χρόνου Οθόνης & Δραστηριότητας -->
+  <div id="page2" class="container hidden">
+    <h1>Ρύθμιση Χρόνου Οθόνης & Δραστηριοτήτων <br><br><i class="fa-solid fa-circle-info"></i> Ατομική Δραστηριότητα</h1>
+    <div class="cont2">
+      <label for="screenSlider">Χρόνος Έκθεσης σε Οθόνη (ώρες): <span id="screenHours">0</span></label>
+      <br>
+      <input type="range" min="0" max="10" value="0" id="screenSlider" oninput="updateScreenTime(this.value)">
+      <div class="bar-container">
+        <div class="bar">
+          <div id="screenTimeBar" class="fill"></div>
+        </div>
+      </div>
+      <p class="message" id="screenMessage"></p>
+    </div>
+    <div class="cont2">
+      <label for="activitySlider">Χρόνος Δραστηριότητας (ώρες): <span id="activityHours">0</span></label>
+      <br>
+      <input type="range" min="0" max="10" value="0" id="activitySlider" oninput="updateActivityTime(this.value)">
+      <div class="bar-container">
+        <div class="bar">
+          <div id="activityTimeBar" class="fill"></div>
+        </div>
+      </div>
+      <p class="message" id="activityMessage"></p>
+    </div>
+    <button onclick="goToPage1()">Πίσω <i class="fa-solid fa-backward" style="color: #ffffff;"></i></button>
+    <button onclick="goToPage3()">Επόμενο <i class="fa-solid fa-forward" style="color: #ffffff;"></i></button>
+  </div>
+
+  <!-- NEW Page 3: Δραστηριότητα – Καταγραφή Χρόνου Αλληλεπίδρασης με Οθόνες (Line Graph) -->
+  <div id="page3" class="container hidden">
+    <h1>Καταγραφή Χρόνου Αλληλεπίδρασης με Οθόνες <br><br> <i class="fa-solid fa-circle-info"></i> Ομαδική Δραστηριότητα</h1>
+    <h1>Οδηγίες Πρόσβασης στο Χρόνο Οθόνης</h1>
+
+    <div class="device-selection">
+        <label for="deviceSelect"><strong>Επιλέξτε τη συσκευή σας:</strong></label>
+        <select id="deviceSelect">
+          <option value="">-- Επιλέξτε --</option>
+          <option value="iphone">iPhone (iOS 12 και νεότερα)</option>
+          <option value="android">Android (Stock Android / Google Pixel)</option>
+          <option value="samsung">Samsung</option>
+          <option value="otherAndroid">Άλλες συσκευές Android</option>
+        </select>
+      </div>
+      
+        <div class="cont" id="iphoneInstructions" style="display: none;">
+            <h2>Για iPhone (iOS 12 και νεότερα)</h2>
+            <ul>
+              <li><strong>Άνοιγμα Ρυθμίσεων:</strong> Πατήστε την εφαρμογή <em>Ρυθμίσεις</em> στην αρχική οθόνη.</li>
+              <li><strong>Πρόσβαση στο Screen Time:</strong> Κάντε κύλιση προς τα κάτω και επιλέξτε <em>Χρόνος Οθόνης</em>.</li>
+              <li><strong>Εμφάνιση Στατιστικών:</strong> Στο ταμπλό του Χρόνου Οθόνης εμφανίζεται η συνολική χρήση σας (ημερήσια ή εβδομαδιαία) και οι επιλογές για καθορισμό ορίων και διακοπών.</li>
+            </ul>
+        </div>
+        
+        <div class="cont" id="androidInstructions" style="display: none;">
+            <h2>Για συσκευές Android (Stock Android / Google Pixel)</h2>
+            <ul>
+              <li><strong>Άνοιγμα Ρυθμίσεων:</strong> Μεταβείτε στην εφαρμογή <em>Ρυθμίσεις</em>.</li>
+              <li><strong>Βρείτε το Digital Wellbeing:</strong> Αναζητήστε την επιλογή <em>Ψηφιακή Ευημερία & Έλεγχος Γονέων</em>. <em>(Σε ορισμένες συσκευές μπορεί να χρειαστεί να επιλέξετε “Advanced” ή να χρησιμοποιήσετε τη λειτουργία αναζήτησης.)</em></li>
+              <li><strong>Προβολή της Χρήσης:</strong> Στο ταμπλό της Ψηφιακής Ευημερίας θα δείτε γραφήματα και λεπτομερείς πληροφορίες για τη χρήση των εφαρμογών, τις ειδοποιήσεις και τις ξεκλειδώσεις.</li>
+            </ul>
+        </div>
+        
+        <div class="cont" id="samsungInstructions" style="display: none;">
+            <h2>Για συσκευές Samsung</h2>
+            <ul>
+              <li><strong>Άνοιγμα Ρυθμίσεων:</strong> Πατήστε την εφαρμογή <em>Ρυθμίσεις</em>.</li>
+              <li><strong>Επιλογή Digital Wellbeing:</strong> Κάντε κύλιση προς τα κάτω και επιλέξτε <em>Ψηφιακή Ευημερία και Έλεγχος Γονέων</em>.</li>
+              <li><strong>Εμφάνιση Δραστηριότητας:</strong> Θα εμφανιστεί μια οθόνη με συνολική καθημερινή χρήση, ανάλυση χρήσης εφαρμογών και επιλογές για τον καθορισμό ορίων ή τη χρήση του Focus Mode.</li>
+            </ul>
+        </div>
+        
+        <div class="cont" id="otherAndroidInstructions" style="display: none;">
+            <h2>Για άλλες συσκευές Android</h2>
+            <ul>
+              <li><strong>Αναζήτηση μέσα στις Ρυθμίσεις:</strong> Αν χρησιμοποιείτε μια άλλη μάρκα (π.χ. Xiaomi, OnePlus, LG κ.ά.), αναζητήστε λέξεις-κλειδιά όπως <em>Digital Wellbeing</em>, <em>Χρόνος Οθόνης</em> ή <em>Ευημερία</em>.</li>
+              <li><strong>Εφαρμογή από το App Drawer:</strong> Ορισμένες συσκευές διαθέτουν αυτή τη λειτουργία ως ξεχωριστή εφαρμογή (π.χ. "Digital Wellbeing") που μπορείτε να ανοίξετε απευθείας.</li>
+              <li><strong>Τρίτες Εφαρμογές:</strong> Εάν η συσκευή σας δεν έχει ενσωματωμένη λειτουργία, μπορείτε να κατεβάσετε αξιόπιστες εφαρμογές όπως το <em>ActionDash</em> ή <em>StayFree</em> από το Google Play Store.</li>
+            </ul>
+        </div>
+        
+
+    <p class="cont">Επιλέξτε την ποσότητα του χρόνου που αλληλεπιδράτε καθημερινά με τις οθόνες, επιλέγοντας μία από τις παρακάτω επιλογές:</p>
     
-            <p class="cont"><i class="fa-solid fa-triangle-exclamation"></i> Επιπτώσεις στην Υγεία – Υπερβολικός χρόνος έκθεσης σε oθόνη μπορεί να προκαλέσει κόπωση ματιών, πονοκεφάλους, διαταραχές ύπνου και καθιστική ζωή.</p>
-            <p class="cont"><i class="fa-solid fa-triangle-exclamation"></i> Μείωση Προσωπικών Σχέσεων – Η συνεχής χρήση ψηφιακών συσκευών μπορεί να περιορίσει την πραγματική επικοινωνία και τις κοινωνικές αλληλεπιδράσεις.</p>
-            <p class="cont"><i class="fa-solid fa-triangle-exclamation"></i> Αποδιοργάνωση & Μείωση Παραγωγικότητας – Η πολύωρη χρήση των συσκευών για ψυχαγωγία μπορεί να μειώσει την ικανότητα συγκέντρωσης και να οδηγήσει σε αναβλητικότητα.</p>
-            <p class="cont"><i class="fa-solid fa-triangle-exclamation"></i> Εθισμός & Ψυχολογικές Επιπτώσεις – Τα κοινωνικά δίκτυα και τα ψηφιακά παιχνίδια μπορεί να προκαλέσουν εξάρτηση, αυξημένο άγχος και χαμηλή αυτοεκτίμηση.</p>
-            </div>
-
-            <button onclick="goToPage3()">Πίσω <i class="fa-solid fa-backward" style="color: #ffffff;"></i></button>
-            <button onclick="goToPage5()">Επόμενο <i class="fa-solid fa-forward" style="color: #ffffff;"></i></button>
-
-    </div>
-
-    <div id="page5" class="container hidden">
-        <h1>Ερωτηματολόγιο: Κατανόηση του Χρόνου Οθόνης</h1>
-
-        <div class="forms" id="quizForm">
-            <!-- Multiple-choice question -->
-            <div class="qq">
-            <div class="question">1. Ποιος είναι ο κύριος λόγος που πρέπει να περιορίζουμε τον χρόνο που περνάμε μπροστά σε οθόνες;</div>
-            <label><input type="radio" name="q1" value="a"> Για να μειώσουμε την κατανάλωση ρεύματος.</label>
-            <label><input type="radio" name="q1" value="b"> Για να προστατεύσουμε την υγεία μας και να διατηρήσουμε την ισορροπία.</label>
-            <label><input type="radio" name="q1" value="c"> Γιατί οι οθόνες μπορεί να χαλάσουν εύκολα.</label>
-            <label><input type="radio" name="q1" value="d"> Γιατί είναι υποχρεωτικό από τον νόμο.</label>
-            </div>
-
-            <!-- Checkbox question -->
-            <div class="qq">
-            <div class="question">2. Ποιες είναι πιθανές επιπτώσεις της υπερβολικής έκθεσης σε οθόνες; (Επιλέξτε όσες ισχύουν)</div>
-            <label><input type="checkbox" name="q2" value="a"> Πονοκέφαλοι και κόπωση ματιών.</label>
-            <label><input type="checkbox" name="q2" value="b"> Καλύτερη ποιότητα ύπνου.</label>
-            <label><input type="checkbox" name="q2" value="c"> Μείωση της φυσικής δραστηριότητας.</label>
-            <label><input type="checkbox" name="q2" value="d"> Δυσκολία συγκέντρωσης.</label>
-            </div>
-
-            <!-- Scenario-based question -->
-            <div class="qq">
-            <div class="question">3. Σενάριο: Ο Γιώργος περνάει 6 ώρες καθημερινά παίζοντας βιντεοπαιχνίδια. Τι θα μπορούσε να κάνει διαφορετικά;</div>
-            <label><input type="checkbox" name="q3" value="a"> Να μειώσει τον χρόνο παιχνιδιού.</label>
-            <label><input type="checkbox" name="q3" value="b"> Να προγραμματίσει διαλείμματα από την οθόνη.</label>
-            <label><input type="checkbox" name="q3" value="c"> Να ασχοληθεί με δραστηριότητες εκτός οθόνης.</label>
-            <label><input type="checkbox" name="q3" value="d"> Να συνεχίσει χωρίς αλλαγές.</label>
-            </div>
-
-            <!-- Open-ended question -->
-            <div class="qq">
-            <div class="question">4. Πιστεύετε ότι η χρήση της τεχνολογίας πρέπει να έχει όρια; Γιατί ή γιατί όχι;</div>
-            <textarea name="q4"></textarea>
-            </div>
-
-            <div class="qq">
-            <div class="question">5. Ποιες δραστηριότητες εκτός οθόνης απολαμβάνετε περισσότερο και γιατί;</div>
-            <textarea name="q5"></textarea>
-            </div>
-
-            <button onclick="goToPage4()">Πίσω <i class="fa-solid fa-backward" style="color: #ffffff;"></i></button>
-            <button onclick="goToPage6()">Επόμενο <i class="fa-solid fa-forward" style="color: #ffffff;"></i></button>
-
+    <div class="graph">
+        <ul>
+        <li>0-1 ώρες</li>
+        <li>1-2 ώρες</li>
+        <li>2-3 ώρες</li>
+        <li>3-4 ώρες</li>
+        <li>4-5 ώρες</li>
+        <li>5-6 ώρες</li>
+        <li>6-7 ώρες</li>
+        <li>7+ ώρες</li>
+        </ul>
+        <div id="resultsInput">
+        <div class="resultEntry">
+            <label>Απάντηση 1:</label>
+            <select class="resultSelect">
+            <option value="0-1">0-1</option>
+            <option value="1-2">1-2</option>
+            <option value="2-3">2-3</option>
+            <option value="3-4">3-4</option>
+            <option value="4-5">4-5</option>
+            <option value="5-6">5-6</option>
+            <option value="6-7">6-7</option>
+            <option value="7+">7+</option>
+            </select>
+        </div>
         </div>
     </div>
+    <button class="b1" id="addEntryButton" onclick="addEntry()">Προσθήκη</button>
+    <br>
+    <button class="b1" onclick="generateResults()">Δημιουργία/Ενημέρωση Γραφήματος</button>
+    <p id="medianResult"></p>
+    <div id="graphContainer"></div>
+    <br>
+    <button onclick="goToPage2()">Πίσω <i class="fa-solid fa-backward" style="color: #ffffff;"></i></button>
+    <button onclick="goToPage4()">Επόμενο <i class="fa-solid fa-forward" style="color: #ffffff;"></i></button>
+  </div>
 
-    <div id="page6" class="container hidden">
-        
-            <h2>Πηγές Πληροφόρησης</h2>
-            <p class="cont">Ανακαλύψτε περισσότερες πληροφορίες για τον χρόνο οθόνης από τις παρακάτω πηγές:</p>
-            
-            <div class="resources">
-                <a href="https://www.google.com/search?sca_esv=74940b13bb8c626e&rlz=1C1CHBF_enGR1105GR1105&q=%CF%87%CF%81%CE%BF%CE%BD%CE%BF%CF%82+%CF%83%CF%84%CE%B7%CE%BD+%CE%BF%CE%B8%CE%BF%CE%BD%CE%B7&udm=7&fbs=ABzOT_CWdhQLP1FcmU5B0fn3xuWpA-dk4wpBWOGsoR7DG5zJBtmuEdhfywyzhendkLDnhcoh1NHOE7XzVrwBJfcrsj_W_FZkVJs3IsACUJjdjyKehICrNI5x63562IbhZai8lUQ8T_vW190suwdL8ydrkCNvMlBjY411kmSABk_6In0f_slxd6nxNtr3Qj-DXDbaVkwJA6kj&sa=X&ved=2ahUKEwiesqu03-6LAxW37bsIHZwYM78QtKgLegQIDxAB&cshid=1741033612314937&biw=1629&bih=793&dpr=1.18" target="_blank" class="resource-btn">
-                    <i class="fa fa-video"></i> Βίντεο στο YouTube
-                </a>
-
-                <a href="https://en.wikipedia.org/wiki/Screen_time" target="_blank" class="resource-btn">
-                    <i class="fa fa-book"></i> Άρθρο στη Wikipedia
-                </a>
-
-                <a href="https://scholar.google.com/scholar?q=screen+time+effects" target="_blank" class="resource-btn">
-                    <i class="fa fa-search"></i> Έρευνες στο Google Scholar
-                </a>
-
-                <a href="https://www.google.com/search?q=%CF%87%CF%81%CE%BF%CE%BD%CE%BF%CF%82+%CF%83%CF%84%CE%B7%CE%BD+%CE%BF%CE%B8%CE%BF%CE%BD%CE%B7&sca_esv=74940b13bb8c626e&rlz=1C1CHBF_enGR1105GR1105&ei=NBDGZ6WgGKLo7_UP6PzOyAY&ved=0ahUKEwilio6m3-6LAxUi9LsIHWi-E2kQ4dUDCBA&uact=5&oq=%CF%87%CF%81%CE%BF%CE%BD%CE%BF%CF%82+%CF%83%CF%84%CE%B7%CE%BD+%CE%BF%CE%B8%CE%BF%CE%BD%CE%B7&gs_lp=Egxnd3Mtd2l6LXNlcnAiIM-Hz4HOv869zr_PgiDPg8-EzrfOvSDOv864zr_Ovc63MgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMggQABiABBiiBDIFEAAY7wUyBRAAGO8FMgUQABjvBUj8igFQ_xBYh4oBcBd4AJABAJgBjQGgAZ0UqgEFMTQuMTK4AQPIAQD4AQGYAjCgAtgUqAIGwgIHEAAYsAMYHsICCBAAGLADGO8FwgILEAAYgAQYsAMYogTCAgUQABiABMICCxAuGIAEGNEDGMcBwgIKEAAYgAQYQxiKBcICBRAuGIAEwgIHEAAYgAQYCsICCxAuGIAEGMcBGK8BwgIHEC4YgAQYCsICBhAAGAUYHsICFBAAGIAEGJECGLQCGIoFGOoC2AEBwgIgEC4YgAQYlwUY3AQY3gQY4AQY9AMY8QMY9QMY9gPYAQLCAgQQABgewgIIEAAYFhgKGB6YAwLxBUjzhmhauNfjiAYBkAYGugYECAEYB7oGBggCEAEYFJIHBTM1LjEzoAfO6gE&sclient=gws-wiz-serp" target="_blank" class="resource-btn">
-                    <i class="fa fa-globe"></i> Google Search
-                </a>
-
-            </div>
-
-            <button onclick="goToPage5()">Πίσω <i class="fa-solid fa-backward" style="color: #ffffff;"></i></button>
+  <!-- Page 4 (was Page 3): Θετικές Πλευρές Έκθεσης σε Οθόνη -->
+  <div id="page4" class="container hidden">
+    <div class="inner-cont1">
+      <h1><i class="fa-solid fa-square-plus" style="color: #00ff2a;"></i>Θετικές Πλευρές Έκθεσης σε Οθόνη <br><i class="fa-solid fa-circle-info"></i> Ενημερωτικό Υλικό</h1>
+      <p class="cont"><i class="fa-solid fa-square-check"></i> Μάθηση & Εκπαίδευση – Πρόσβαση σε πληροφορίες, διαδικτυακά μαθήματα, ψηφιακές εγκυκλοπαίδειες και εκπαιδευτικές πλατφόρμες.</p>
+      <p class="cont"><i class="fa-solid fa-square-check"></i> Επικοινωνία & Κοινωνική Δικτύωση – Δυνατότητα επικοινωνίας με φίλους, οικογένεια και επαγγελματικές επαφές μέσω κοινωνικών δικτύων και μηνυμάτων.</p>
+      <p class="cont"><i class="fa-solid fa-square-check"></i> Ψυχαγωγία – Βίντεο, ταινίες, μουσική, παιχνίδια και άλλες μορφές ψηφιακής διασκέδασης.</p>
+      <p class="cont"><i class="fa-solid fa-square-check"></i> Ανάπτυξη Δεξιοτήτων – Ο χρόνος έκθεσης σε oθόνη μπορεί να χρησιμοποιηθεί δημιουργικά, όπως στον προγραμματισμό, στη γραφιστική ή στη μουσική παραγωγή.</p>
     </div>
+    <button onclick="goToPage3()">Πίσω <i class="fa-solid fa-backward" style="color: #ffffff;"></i></button>
+    <button onclick="goToPage5()">Επόμενο <i class="fa-solid fa-forward" style="color: #ffffff;"></i></button>
+  </div>
 
-    <script src="script.js"></script>
+  <!-- Page 5 (was Page 4): Αρνητικές Πλευρές Έκθεσης σε Οθόνη -->
+  <div id="page5" class="container hidden">
+    <div class="inner-cont2">
+      <h1><i class="fa-solid fa-square-minus" style="color: #ff1605;"></i>Αρνητικές Πλευρές Έκθεσης σε Οθόνη <br><i class="fa-solid fa-circle-info"></i> Ενημερωτικό Υλικό</h1>
+      <p class="cont"><i class="fa-solid fa-triangle-exclamation"></i> Επιπτώσεις στην Υγεία – Υπερβολικός χρόνος έκθεσης σε oθόνη μπορεί να προκαλέσει κόπωση ματιών, πονοκεφάλους, διαταραχές ύπνου και καθιστική ζωή.</p>
+      <p class="cont"><i class="fa-solid fa-triangle-exclamation"></i> Μείωση Προσωπικών Σχέσεων – Η συνεχής χρήση ψηφιακών συσκευών μπορεί να περιορίσει την πραγματική επικοινωνία και τις κοινωνικές αλληλεπιδράσεις.</p>
+      <p class="cont"><i class="fa-solid fa-triangle-exclamation"></i> Αποδιοργάνωση & Μείωση Παραγωγικότητας – Η πολύωρη χρήση των συσκευών για ψυχαγωγία μπορεί να μειώσει την ικανότητα συγκέντρωσης και να οδηγήσει σε αναβλητικότητα.</p>
+      <p class="cont"><i class="fa-solid fa-triangle-exclamation"></i> Εθισμός & Ψυχολογικές Επιπτώσεις – Τα κοινωνικά δίκτυα και τα ψηφιακά παιχνίδια μπορεί να προκαλέσουν εξάρτηση, αυξημένο άγχος και χαμηλή αυτοεκτίμηση.</p>
+    </div>
+    <button onclick="goToPage4()">Πίσω <i class="fa-solid fa-backward" style="color: #ffffff;"></i></button>
+    <button onclick="goToPage6()">Επόμενο <i class="fa-solid fa-forward" style="color: #ffffff;"></i></button>
+  </div>
+
+  <!-- Page 6 (was Page 5): Ερωτηματολόγιο: Κατανόηση του Χρόνου Οθόνης -->
+  <div id="page6" class="container hidden">
+    <h1>Κατανόηση του Χρόνου Οθόνης <br><br><i class="fa-solid fa-circle-info"></i> Ερωτηματολόγιο / Συζήτηση στη Τάξη</h1>
+    <div class="forms" id="quizForm">
+      <!-- Multiple-choice question -->
+      <div class="qq cont">
+        <div class="question">1. Ποιος είναι ο κύριος λόγος που πρέπει να περιορίζουμε τον χρόνο που περνάμε μπροστά σε οθόνες;</div>
+        <label><input type="radio" name="q1" value="a"> Για να μειώσουμε την κατανάλωση ρεύματος.</label>
+        <label><input type="radio" name="q1" value="b"> Για να προστατεύσουμε την υγεία μας και να διατηρήσουμε την ισορροπία.</label>
+        <label><input type="radio" name="q1" value="c"> Γιατί οι οθόνες μπορεί να χαλάσουν εύκολα.</label>
+        <label><input type="radio" name="q1" value="d"> Γιατί είναι υποχρεωτικό από τον νόμο.</label>
+      </div>
+      <!-- Checkbox question -->
+      <div class="qq cont">
+        <div class="question">2. Ποιες είναι πιθανές επιπτώσεις της υπερβολικής έκθεσης σε οθόνες; (Επιλέξτε όσες ισχύουν)</div>
+        <label><input type="checkbox" name="q2" value="a"> Πονοκέφαλοι και κόπωση ματιών.</label>
+        <label><input type="checkbox" name="q2" value="b"> Καλύτερη ποιότητα ύπνου.</label>
+        <label><input type="checkbox" name="q2" value="c"> Μείωση της φυσικής δραστηριότητας.</label>
+        <label><input type="checkbox" name="q2" value="d"> Δυσκολία συγκέντρωσης.</label>
+      </div>
+      <!-- Scenario-based question -->
+      <div class="qq cont">
+        <div class="question">3. Σενάριο: Ο Γιώργος περνάει 6 ώρες καθημερινά παίζοντας βιντεοπαιχνίδια. Τι θα μπορούσε να κάνει διαφορετικά;</div>
+        <label><input type="checkbox" name="q3" value="a"> Να μειώσει τον χρόνο παιχνιδιού.</label>
+        <label><input type="checkbox" name="q3" value="b"> Να προγραμματίσει διαλείμματα από την οθόνη.</label>
+        <label><input type="checkbox" name="q3" value="c"> Να ασχοληθεί με δραστηριότητες εκτός οθόνης.</label>
+        <label><input type="checkbox" name="q3" value="d"> Να συνεχίσει χωρίς αλλαγές.</label>
+      </div>
+      <!-- Open-ended question -->
+      <div class="qq cont">
+        <div class="question">4. Πιστεύετε ότι η χρήση της τεχνολογίας πρέπει να έχει όρια; Γιατί ή γιατί όχι;</div>
+        <textarea name="q4"></textarea>
+      </div>
+      <div class="qq cont">
+        <div class="question">5. Ποιες δραστηριότητες εκτός οθόνης απολαμβάνετε περισσότερο και γιατί;</div>
+        <textarea name="q5"></textarea>
+      </div>
+      <button onclick="goToPage5()">Πίσω <i class="fa-solid fa-backward" style="color: #ffffff;"></i></button>
+      <button onclick="goToPage7()">Επόμενο <i class="fa-solid fa-forward" style="color: #ffffff;"></i></button>
+    </div>
+  </div>
+
+  <!-- Page 7 (was Page 6): Πηγές Πληροφόρησης -->
+  <div id="page7" class="container hidden">
+    <h1>Πηγές Πληροφόρησης <br><br> <i class="fa-solid fa-circle-info"></i> Ατομική Έρευνα</h1>
+    <p class="cont">Ανακαλύψτε περισσότερες πληροφορίες για τον χρόνο οθόνης από τις παρακάτω πηγές:</p>
+    <div class="resources">
+      <a href="https://www.google.com/search?sca_esv=74940b13bb8c626e&rlz=1C1CHBF_enGR1105GR1105&q=%CF%87%CF%81%CE%BF%CE%BD%CE%BF%CF%82+%CF%83%CF%84%CE%B7%CE%BD+%CE%BF%CE%B8%CE%BF%CE%BD%CE%B7&udm=7&fbs=ABzOT_CWdhQLP1FcmU5B0fn3xuWpA-dk4wpBWOGsoR7DG5zJBtmuEdhfywyzhendkLDnhcoh1NHOE7XzVrwBJfcrsj_W_FZkVJs3IsACUJjdjyKehICrNI5x63562IbhZai8lUQ8T_vW190suwdL8ydrkCNvMlBjY411kmSABk_6In0f_slxd6nxNtr3Qj-DXDbaVkwJA6kj" target="_blank" class="resource-btn">
+        <i class="fa fa-video"></i> Βίντεο στο YouTube
+      </a>
+      <a href="https://en.wikipedia.org/wiki/Screen_time" target="_blank" class="resource-btn">
+        <i class="fa fa-book"></i> Άρθρο στη Wikipedia
+      </a>
+      <a href="https://scholar.google.com/scholar?q=screen+time+effects" target="_blank" class="resource-btn">
+        <i class="fa fa-search"></i> Έρευνες στο Google Scholar
+      </a>
+      <a href="https://www.google.com/search?q=%CF%87%CF%81%CE%BF%CE%BD%CE%BF%CF%82+%CF%83%CF%84%CE%B7%CE%BD+%CE%BF%CE%B8%CE%BF%CE%BD%CE%B7&sca_esv=74940b13bb8c626e&rlz=1C1CHBF_enGR1105GR1105&ei=NBDGZ6WgGKLo7_UP6PzOyAY&ved=0ahUKEwilio6m3-6LAxUi9LsIHWi-E2kQ4dUDCBA&uact=5&oq=%CF%87%CF%81%CE%BF%CE%BD%CE%BF%CF%82+%CF%83%CF%84%CE%B7%CE%BD+%CE%BF%CE%B8%CE%BF%CE%BD%CE%B7&gs_lp=Egxnd3Mtd2l6LXNlcnAiIM-Hz4HOv869zr_PgiDPg8-EzrfOvSDOv864zr_Ovc63MgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMggQABiABBiiBDIFEAAY7wUyBRAAGO8FMgUQABjvBUj8igFQ_xBYh4oBcBd4AJABAJgBjQGgAZ0UqgEFMTQuMTK4AQPIAQD4AQGYAjCgAtgUqAIGwgIHEAAYsAMYHsICCBAAGLADGO8FwgILEAAYgAQYsAMYogTCAgUQABiABMICCxAuGIAEGNEDGMcBwgIKEAAYgAQYQxiKBcICBRAuGIAEwgIHEAAYgAQYCsICCxAuGIAEGMcBGK8BwgIHEC4YgAQYCsICBhAAGAUYHsICFBAAGIAEGJECGLQCGIoFGOoC2AEBwgIgEC4YgAQYlwUY3AQY3gQY4AQY9AMY8QMY9QMY9gPYAQLCAgQQABgewgIIEAAYFhgKGB6YAwLxBUjzhmhauNfjiAYBkAYGugYECAEYB7oGBggCEAEYFJIHBTM1LjEzoAfO6gE&sclient=gws-wiz-serp" target="_blank" class="resource-btn">
+        <i class="fa fa-globe"></i> Google Search
+      </a>
+    </div>
+    <button onclick="goToPage6()">Πίσω <i class="fa-solid fa-backward" style="color: #ffffff;"></i></button>
+  </div>
+
+  <script src="script.js"></script>
+  
 </body>
 </html>

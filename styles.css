@@ -20,11 +20,14 @@ h1, h2, h3, h4, h5, h6{
     align-items: center; 
     background-color: rgba(0,0,0,0.8); 
     opacity: 0.9;
-    padding: 40px;
-    margin: 40px;
+    padding: 20px;
+    margin: 20px;
     border-radius: 10px;
     color: white;
     font-size: 1.5rem;
+}
+.cont ul{
+    list-style-type: none;
 }
 .cont2{
     margin-top: 20px;
@@ -56,7 +59,7 @@ h1, h2, h3, h4, h5, h6{
     margin: 10px;
 }
 .container { 
-    max-width: 1200px;
+    max-width: 1400px;
     margin: auto; 
 }
 .hidden { 
@@ -81,7 +84,8 @@ h1, h2, h3, h4, h5, h6{
 .message { margin-top: 10px; 
     font-weight: bold; 
 }
-.inner-cont1 i{
+.inner-cont1 i:not(.fa-circle-info),
+.inner-cont2 i:not(.fa-circle-info) {
     font-size: 2rem;
     color: gold;
     margin: 1rem;
@@ -89,14 +93,7 @@ h1, h2, h3, h4, h5, h6{
     padding: 0.5rem;
     border-radius: 10px;
 }
-.inner-cont2 i{
-    font-size: 2rem;
-    color: gold;
-    margin: 1rem;
-    border: 2px solid gold;
-    padding: 0.5rem;
-    border-radius: 10px;
-}
+
 button{
     background-color: gray;
     color: white;
@@ -160,6 +157,45 @@ textarea {
     margin-right: 10px;
     font-size: 3rem;
     color: white;
+}
+
+.graph{
+    margin-top: 25px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+#resultsInput{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.resultEntry{
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0,0,0,0.8); 
+}
+
+.resultEntry option{
+    font-size: 2rem;
+    color: black;
+}
+#graphContainer{
+    background-color: aliceblue;
+
+}
+
+.b1{
+    font-size: 1rem;
+    border: black 2px solid;;
 }
 
 
